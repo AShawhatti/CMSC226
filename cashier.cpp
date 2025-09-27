@@ -1,8 +1,8 @@
 /*
  * Class: CMSC226
  * Instructor: Farnaz Eivazi
- * Description: Brief description of this file/module
- * Due: 9/21/2025
+ * Description: When given the information about the book or if there are more books and check the date then it calculates how much it will cost to buy it
+ * Due: 9/28/2025
  * I pledge that I have completed the programming assignment independently. 
  * I have not copied the code from a student or any source.
  * I have not given my code to any student.
@@ -15,17 +15,18 @@
 using namespace std;
 
 int main() {
-    //Making the varaibles
-    string Date, ISBN, Title;
-    int Qty;
-    double Price;
+    //declaring variables
     const double Tax_Rate = 0.06;
+    char Anothertime;
+    double Price;
+    string Date, ISBN, Title;
+    int Qty;  
 
-
+    do{
     cout << "Serendipity Booksellers" << endl;
     cout << " Cashier Module" << endl;
     cout << " " << endl;
-    //The user Input to Ouput later or do calculations
+
     cout << "Date: ";
     cin >> Date;
     cout << "Quantity of Book: ";
@@ -33,22 +34,24 @@ int main() {
     cout << "ISBN: ";
     cin >> ISBN;
     cout << "Title: ";
-    cin.ignore(); // It Removes The LeftOver of the newline
-    getline(cin, Title); // it Reads the whole line
+    cin.ignore(); 
+    getline(cin, Title); 
     cout << "Price: ";
     cin >> Price;
+    //The user input
 
-    // The calculations
+   
     double subtotal = Qty * Price;
     double Tax = subtotal * Tax_Rate;
     double Total = subtotal + Tax;
-
+    //Calculating the subtotal tax and total
+     
+    //doing output and formatting
     cout << endl;
-    cout << "Serendipity Booksellers"<< endl;
+    cout << "Serendipity Booksellers\n";
     cout << endl;
     cout << "Date: " << Date << endl;
     cout << endl;
-    // The alignment and the spaces wide as you set in document
     cout << left << setw(5) << "Qty"
          << left << setw(14) << "ISBN"
          << left << setw(24) << "Title"
@@ -56,19 +59,24 @@ int main() {
          << right << setw(12) << "Subtotal" << endl;
     cout << "________________________________________________________________" << endl;
 
-    // The alignment and the spaces wide as you set in document
+    
     cout << left << setw(5) << Qty
          << left << setw(14) << ISBN
          << left << setw(24) << Title
          << right << setw(7) << fixed << setprecision(2) << Price
          << right << setw(12) << fixed << setprecision(2) << subtotal << endl;
 
-    // The alignment and the spaces wide as you set in document
-    //Showing the Calulatiions I made earlier
     cout << endl
          << setw(25) << "Subtotal" << setw(15) << subtotal << endl
          << setw(25) << "Tax" << setw(15) << Tax << endl
          << setw(25) << "Total" << setw(15) << Total << endl;
     cout << endl;
+
+    cout << "Do you want to buy another book? (Y/N)" << endl;
+    cin >> Anothertime;
+    } while (Anothertime == 'Y' || Anothertime == 'y');
+
+
     cout << "Thank you for Shopping at Serendipity!" << endl;
+    return 0;
 }
